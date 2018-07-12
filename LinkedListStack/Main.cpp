@@ -180,6 +180,8 @@ int main()
 	test8();
 
 	_CrtDumpMemoryLeaks();
+
+	_getch();
 	while( !_kbhit() );
 	return 0;
 }
