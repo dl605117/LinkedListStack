@@ -7,11 +7,23 @@ Stack::Stack( const Stack & src )
 
 Stack & Stack::operator=( const Stack & src )
 {
-	if ( src.Empty() )
+	if ( !Empty() )
+	{
+		delete root;
+		root = nullptr;
+	}
+
+	if ( !src.Empty() )
 	{
 		root = new Node( *src.root );
 	}
 	return *this;
+}
+
+Stack::~Stack()
+{
+	delete root;
+	root = nullptr;
 }
 
 void Stack::Push( int val )

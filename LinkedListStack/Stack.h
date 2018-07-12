@@ -14,12 +14,17 @@ private:
 		}
 		Node( const Node& src )
 			:
-			val( val )
+			val( src.val )
 		{
 			if ( src.next != nullptr )
 			{
 				next = new Node( *src.next );
 			}
+		}
+		~Node()
+		{
+			delete next;
+			next = nullptr;
 		}
 		int GetVal() const
 		{
@@ -47,6 +52,7 @@ public:
 	Stack() = default;
 	Stack( const Stack& src );
 	Stack& operator=( const Stack& src );
+	~Stack();
 	void Push( int val );
 	int Pop();
 	int Size() const;
